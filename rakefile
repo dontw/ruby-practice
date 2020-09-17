@@ -1,0 +1,32 @@
+desc "Mail sender"
+
+# default task
+
+task :default => :sendmail # 把 default 指定
+
+task :sendmail do
+  puts "get email list from database"
+  sleep 2
+  puts "sending email"
+  sleep 2
+  puts "done"
+end
+
+task :open_the_door do
+  puts "open door"
+end
+
+
+task :go_to_toilet => :open_the_door do
+  puts "go"
+end
+
+task :shit => :go_to_toilet do
+  puts "shit!"
+end
+
+namespace :db do #namespace 可多層！
+  task :migrate do
+    puts "migration!!!!"
+  end
+end
